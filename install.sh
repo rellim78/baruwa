@@ -90,15 +90,15 @@ sslcity='Chicago'
 # Version Tracking
 # +---------------------------------------------------+
 
-date="02-18-2016"						# Last Updated On
-version="3.2.2"							# Script Version
+date="26-OCT-2016"						# Last Updated On
+version="3.2.2~frk-rellim78"					# Script Version
 
-osver="Cent OS/RHEL x86_64"				# Script ID
-baruwaver="2.0.1"						# Baruwa Version
+osver="Cent OS 6.8"						# Script ID
+baruwaver="2.0.9"						# Baruwa Version
 centalt="6-1"							# CenAlt Version
-epel="6-8"								# EPEL Version
+epel="6-8"							# EPEL Version
 rpmforge="0.5.3-1"						# RPM Forge Version
-rabbitmq="3.6.0-1"						# Rabbit MQ Version
+rabbitmq="3.6.5-1"						# Rabbit MQ Version
 msver="4.85.2-3"						# MailScanner Version
 msver1="4.85.2"							# MS Config Version
 libmem="1.0.17"							# LIB MEM Cache Version
@@ -111,14 +111,14 @@ spamassver="3.3.2"						# Spamasassin Version
 # More Stuff
 # +---------------------------------------------------+
 
-baruwagit="https://raw.githubusercontent.com/akissa/baruwa2/master"			# Extras from Baruwa
-fluxgit="https://raw.githubusercontent.com/fluxlabs/baruwa/master"	# Extras from Flux Labs
-home="/home/baruwa"						# Home Directory
-etcdir="/etc/baruwa"					# Baruwa etc
-eximdir="/etc/exim"						# Exim Directory
-track="/tmp/tracking"					# Tracking Directory
-logs="/tmp/baruwa2"						# Logs Directory
-builddir="/usr/src/b2build/"			# Build Directory
+baruwagit="https://raw.githubusercontent.com/akissa/baruwa2/master"	# Extras from Baruwa
+fluxgit="https://raw.githubusercontent.com/rellim78/baruwa/master"	# Extras from Flux Labs
+home="/home/baruwa"							# Home Directory
+etcdir="/etc/baruwa"							# Baruwa etc
+eximdir="/etc/exim"							# Exim Directory
+track="/tmp/tracking"							# Tracking Directory
+logs="/tmp/baruwa2"							# Logs Directory
+builddir="/usr/src/b2build/"						# Build Directory
 hosts=$(hostname -s)
 hostf=$(hostname)
 eth0ip=$(ifconfig eth0 | grep "inet addr" | awk '{ print $2 }' | sed 's/addr://')
@@ -340,7 +340,7 @@ if [ $useauto == 1 ];
 	then
 	:
 else
-	
+
 f_clear
 	echo "------------------------------------------------------------------------------";
 	echo "B A R U W A   S E T T I N G S";
@@ -359,121 +359,121 @@ f_clear
 			echo ''
 		done
 
-while :
-	do
-		echo ""
-		echo "What email would you like Report Emails sent from?"
-		echo "ie: reports@domain.com"
-		IFS= read -p "Email: " repemail
-		IFS= read -p "Email Again: " repemail2
-		[[ $repemail = "$repemail2" ]] && break
-		echo ''
-		echo 'Email does not match. Please try again.'
-		echo ''
-	done
-
-while :
-	do
-		echo ""
-		echo "What email would you like Error Emails sent from?"
-		echo "ie: errors@domain.com"
-		IFS= read -p "Email: " erremail
-		IFS= read -p "Email Again: " erremail2
-		[[ $erremail = "$erremail2" ]] && break
-		echo ''
-		echo 'Email does not match. Please try again.'
-		echo ''
-	done
-
-while :
-	do
-		f_clear
-		echo "------------------------------------------------------------------------------";
-		echo "B A R U W A  A D M I N  U S E R";
-		echo "------------------------------------------------------------------------------";
-		echo ""
-		echo "What would you like your username to be?"
-		IFS= read -p "Username: " baruwaadmin
-		IFS= read -p "Username Again: " adminuser2
-		[[ $baruwaadmin = "$adminuser2" ]] && break
-		echo ''
-		echo 'Username deos not match. Please try again.'
-		echo ''
-	done
-
-while :
-	do
-		echo ""
-		echo "What password would you like to use?"
-		echo "This must be a complex password!"
-		IFS= read -p "Password: " adminpass
-		IFS= read -p "Password Again: " adminpass2
-		[[ $adminpass = "$adminpass2" ]] && break
-		echo ''
-		echo 'Passwords do not match. Please try again.'
-		echo ''
-done
-
-while :
-	do
-		echo ""
-		echo "What email would you like to use?"
-		IFS= read -p "Email: " adminemail
-		IFS= read -p "Email Again: " adminemail2
-		[[ $adminemail = "$adminemail2" ]] && break
-		echo ''
-		echo 'Passwords do not match. Please try again.'
-		echo ''
-	done
-
-while :
-	do
-		echo ""
-		echo "What domain will you use? example - baruwa.domain.net"
-		IFS= read -p "Email: " baruwadomain
-		IFS= read -p "Email Again: " baruwadomain2
-		[[ $baruwadomain = "$baruwadomain2" ]] && break
-		echo ''
-		echo 'These domains do not match. Please try again.'
-		echo ''
-	done
-	
-while :
-	do
-		f_clear
-		echo "------------------------------------------------------------------------------";
-		echo "P O S T G R E S Q L  P A S S W O R D";
-		echo "------------------------------------------------------------------------------";
-		echo ""
-		echo "Lets set a password for Postgres."
-		echo "What would you like this super secret password to be?"
-		echo "(Not Complex, no special Characters)"
-		IFS= read -r -p "Password: " pssqlpass
-		IFS= read -r -p "Password Again: " pssqlpass2
-		echo ""
-		[[ $pssqlpass = "$pssqlpass2" ]] && break
-		echo ''
-		echo 'Passwords did not match. Please try again.'
-		echo ''
-	done
-
-		while :
+	while :
 		do
-		f_clear
-		echo "------------------------------------------------------------------------------";
-		echo "R A B B I T M Q  P A S S W O R D";
-		echo "------------------------------------------------------------------------------";
-		echo "Lets set a password for RabbitMQ."
-		echo "What would you like this super secret password to be?"
-		echo "(Not Complex, no special Characters)"
-		IFS= read -r -p "Password: " rabbpass
-		IFS= read -r -p "Password Again: " rabbpass2
-		echo ""
-		[[ $rabbpass = "$rabbpass2" ]] && break
-		echo ''
-		echo 'Passwords did not match. Please try again.'
-		echo ''
+			echo ""
+			echo "What email would you like Report Emails sent from?"
+			echo "ie: reports@domain.com"
+			IFS= read -p "Email: " repemail
+			IFS= read -p "Email Again: " repemail2
+			[[ $repemail = "$repemail2" ]] && break
+			echo ''
+			echo 'Emails do not match. Please try again.'
+			echo ''
+		done
+
+	while :
+		do
+			echo ""
+			echo "What email would you like Error Emails sent from?"
+			echo "ie: errors@domain.com"
+			IFS= read -p "Email: " erremail
+			IFS= read -p "Email Again: " erremail2
+			[[ $erremail = "$erremail2" ]] && break
+			echo ''
+			echo 'Emails do not match. Please try again.'
+			echo ''
+		done
+
+	while :
+		do
+			f_clear
+			echo "------------------------------------------------------------------------------";
+			echo "B A R U W A  A D M I N  U S E R";
+			echo "------------------------------------------------------------------------------";
+			echo ""
+			echo "What would you like your username to be?"
+			IFS= read -p "Username: " baruwaadmin
+			IFS= read -p "Username Again: " adminuser2
+			[[ $baruwaadmin = "$adminuser2" ]] && break
+			echo ''
+			echo 'Username deos not match. Please try again.'
+			echo ''
+		done
+
+	while :
+		do
+			echo ""
+			echo "What password would you like to use?"
+			echo "This must be a complex password!"
+			IFS= read -s -p "Password: " adminpass
+			IFS= read -s -p "Password Again: " adminpass2
+			[[ $adminpass = "$adminpass2" ]] && break
+			echo ''
+			echo 'Passwords do not match. Please try again.'
+			echo ''
 	done
+
+	while :
+		do
+			echo ""
+			echo "What email would you like to use?"
+			IFS= read -p "Email: " adminemail
+			IFS= read -p "Email Again: " adminemail2
+			[[ $adminemail = "$adminemail2" ]] && break
+			echo ''
+			echo 'Emails do not match. Please try again.'
+			echo ''
+		done
+
+	while :
+		do
+			echo ""
+			echo "What domain will you use? example - baruwa.domain.net"
+			IFS= read -p "Domain: " baruwadomain
+			IFS= read -p "Domain Again: " baruwadomain2
+			[[ $baruwadomain = "$baruwadomain2" ]] && break
+			echo ''
+			echo 'These domains do not match. Please try again.'
+			echo ''
+		done
+
+	while :
+		do
+			f_clear
+			echo "------------------------------------------------------------------------------";
+			echo "P O S T G R E S Q L  P A S S W O R D";
+			echo "------------------------------------------------------------------------------";
+			echo ""
+			echo "Lets set a password for Postgres."
+			echo "What would you like this super secret password to be?"
+			echo "(Not Complex, no special Characters)"
+			IFS= read -r -p "Password: " pssqlpass
+			IFS= read -r -p "Password Again: " pssqlpass2
+			echo ""
+			[[ $pssqlpass = "$pssqlpass2" ]] && break
+			echo ''
+			echo 'Passwords did not match. Please try again.'
+			echo ''
+		done
+
+	while :
+		do
+			f_clear
+			echo "------------------------------------------------------------------------------";
+			echo "R A B B I T M Q  P A S S W O R D";
+			echo "------------------------------------------------------------------------------";
+			echo "Lets set a password for RabbitMQ."
+			echo "What would you like this super secret password to be?"
+			echo "(Not Complex, no special Characters)"
+			IFS= read -r -p "Password: " rabbpass
+			IFS= read -r -p "Password Again: " rabbpass2
+			echo ""
+			[[ $rabbpass = "$rabbpass2" ]] && break
+			echo ''
+			echo 'Passwords did not match. Please try again.'
+			echo ''
+		done
 
 	f_clear
 	echo "------------------------------------------------------------------------------";
@@ -537,7 +537,7 @@ else
 		then 
 			echo "Skipping"; sleep 2
 	else
-	sed -i "19i exclude=perl-Compress-Raw-Zlib perl-Archive-Zip perl-Compress-Zlib perl-libwww-perl spamassassin perl-IO-Zlib perl-DBI" /etc/yum.repos.d/CentOS-Base.repo
+	sed -i "19i exclude=perl-Compress-Raw-Zlib perl-Archive-Zip perl-libwww-perl spamassassin perl-IO-Zlib perl-DBI" /etc/yum.repos.d/CentOS-Base.repo
 	sed -i "28i exclude=spamassassin" /etc/yum.repos.d/CentOS-Base.repo
 	touch $track/cent-exclude
 	fi
@@ -554,7 +554,7 @@ else
     perl-MIME-tools perl-Net-CIDR perl-Net-DNS perl-Net-IP perl-OLE-Storage_Lite perl-Pod-Escapes \
     perl-Pod-Simple perl-Sys-Hostname-Long perl-Sys-SigAction unrar perl-Mail-SPF mod_wsgi \
     perl-Test-Harness perl-Test-Pod perl-Test-Simple perl-TimeDate perl-Time-HiRes perl-Net-Ident re2c -y
-    
+
 	if [ $? -eq 0 ];
 		then
     touch $track/dependencies
@@ -995,7 +995,7 @@ echo "--------------------------------------------------------------------------
 echo "H T T P  I N S T A L L A T I O N";
 echo "------------------------------------------------------------------------------";
 sleep 3
-	
+
 if rpm -q --quiet httpd;
 	then
 	echo "It looks like Apache is already installed. Skipping."; sleep 3
@@ -1306,7 +1306,7 @@ f_services (){
 		echo "Restarting necessary services for final time."
 		echo "We are also adding services to startup."
 		echo ""; sleep 3
-	
+
 		service clamd restart
 		service exim restart
 		chkconfig --level 345 clamd on
