@@ -102,6 +102,7 @@ osver="CentOS 7.1"						# Script ID
 baruwaver="2.0.9"						# Baruwa Version
 epel="7-8"							# EPEL Version
 rpmforge="0.5.3-1"						# RPM Forge Version
+remi="7"							# Remi Version
 rabbitmq="3.6.5-1"						# Rabbit MQ Version
 msver="4.85.2-3"						# MailScanner Version
 msver1="4.85.2"							# MS Config Version
@@ -521,6 +522,14 @@ else
 			sed -i '19 s:0:1:' /etc/yum.repos.d/rpmforge.repo
 			sed -i "23i exclude=perl-IO-Compress*" /etc/yum.repos.d/rpmforge.repo
 		fi
+
+        if rpm -q --quiet remi-release-$remi;
+                then
+                        echo "Good, It looks as though REMI $remi is already installed. Skipping"; sleep 2
+                else
+                        rpm -Uvh wget https://rpms.remirepo.net/enterprise/remi-release-$remi.rpm
+        fi
+
 	if [ -f $track/cent-exclude ];
 		then 
 			echo "Skipping"; sleep 2
