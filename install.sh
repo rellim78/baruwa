@@ -100,7 +100,6 @@ version="3.3"							# Script Version
 
 osver="CentOS 7.1"						# Script ID
 baruwaver="2.0.9"						# Baruwa Version
-centalt="6-1"							# CenAlt Version
 epel="6-8"							# EPEL Version
 rpmforge="0.5.3-1"						# RPM Forge Version
 rabbitmq="3.6.5-1"						# Rabbit MQ Version
@@ -116,14 +115,14 @@ spamassver="3.3.2"						# Spamasassin Version
 # More Stuff
 # +---------------------------------------------------+
 
-baruwagit="https://raw.githubusercontent.com/akissa/baruwa2/master"			# Extras from Baruwa
-fluxgit="https://raw.githubusercontent.com/fluxlabs/baruwa/master"	# Extras from Flux Labs
-home="/home/baruwa"						# Home Directory
-etcdir="/etc/baruwa"					# Baruwa etc
-eximdir="/etc/exim"						# Exim Directory
-track="/tmp/tracking"					# Tracking Directory
-logs="/tmp/baruwa2"						# Logs Directory
-builddir="/usr/src/b2build/"			# Build Directory
+baruwagit="https://raw.githubusercontent.com/akissa/baruwa2/master"	# Extras from Baruwa
+fluxgit="https://raw.githubusercontent.com/rellim78/baruwa/latest"	# Extras from Flux Labs
+home="/home/baruwa"							# Home Directory
+etcdir="/etc/baruwa"							# Baruwa etc
+eximdir="/etc/exim"							# Exim Directory
+track="/tmp/tracking"							# Tracking Directory
+logs="/tmp/baruwa2"							# Logs Directory
+builddir="/usr/src/b2build/"						# Build Directory
 hosts=$(hostname -s)
 hostf=$(hostname)
 eth0ip=$(ifconfig eth0 | grep "inet addr" | awk '{ print $2 }' | sed 's/addr://')
@@ -175,7 +174,7 @@ f_exit (){
 f_clear () {
 	clear 2>/dev/null
 }
- 
+
 f_complete (){
 	if [ $usepause == 1 ];
 		then
