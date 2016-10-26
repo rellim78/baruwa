@@ -525,8 +525,6 @@ else
 		then 
 			echo "Skipping"; sleep 2
 	else
-	sed -i "19i exclude=perl-Compress-Raw-Zlib perl-Archive-Zip perl-Compress-Zlib perl-libwww-perl spamassassin perl-IO-Zlib perl-DBI" /etc/yum.repos.d/CentOS-Base.repo
-	sed -i "28i exclude=spamassassin" /etc/yum.repos.d/CentOS-Base.repo
 	touch $track/cent-exclude
 	fi
 
