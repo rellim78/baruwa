@@ -1,14 +1,19 @@
 #!/bin/sh
 export LANG=C
 # +--------------------------------------------------------------------+
-# Install for Barwua 2.0 for Cent OS/RHEL x86_64
+# Install for Barwua 2.0.9 for CentOS 6.8
 # +--------------------------------------------------------------------+
 #
+# ORIGINAL:
 # Author - Jeremy McSpadden
 # Contact - jeremy@fluxlabs.net
 # Copyright (C) 2013  http://www.fluxlabs.net
 #
-# Sourced at https://github.com/fluxlabs/baruwa/blob/master/2.0/cent6/install.sh
+# UPDATES:
+# Author - Steve Miller
+# Contact - smiller.naca@gmail.com
+#
+# Sourced from https://github.com/fluxlabs/baruwa/blob/master/2.0/cent6/install.sh
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
