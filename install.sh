@@ -100,7 +100,7 @@ version="3.3"							# Script Version
 
 osver="CentOS 7.1"						# Script ID
 baruwaver="2.0.9"						# Baruwa Version
-epel="6-8"							# EPEL Version
+epel="7-8"							# EPEL Version
 rpmforge="0.5.3-1"						# RPM Forge Version
 rabbitmq="3.6.5-1"						# Rabbit MQ Version
 msver="4.85.2-3"						# MailScanner Version
@@ -509,30 +509,14 @@ else
 		then
 			echo "Good, It looks as though EPEL $epel is already installed. Skipping"; sleep 2
 		else
-			rpm -Uvh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-$epel.noarch.rpm
+			rpm -Uvh http://download.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-$epel.noarch.rpm
 	fi
 
-	if rpm -q --quiet centalt-release-$centalt;
-		then
-			echo "Good, It looks as though CENTALT $centalt is already intalled. Skipping"; sleep 2
-		else
-			rpm -Uvh http://mirror.neu.edu.cn/CentALT/6/x86_64/centalt-release-$centalt.noarch.rpm
-			sed -i 's/centos.alt.ru\/repository\/centos/mirror.neu.edu.cn\/CentALT/g' /etc/yum.repos.d/centalt.repo
-			
-			if [ -f $track/centalt-exclude ];
-			then 		
-				echo "Skipping"; sleep 2
-			else
-				echo -n "exclude=openssh-server openssh openssh-clients perl-Razor-Agent razor-agents clamav clamav-db clamd bind-chroot sphinx mariadb* mysql* perl-DBD-MySQL*" >> /etc/yum.repos.d/centalt.repo
-				touch $track/centalt-exclude
-			fi
-	fi
-
-	if rpm -q --quiet rpmforge-release-$rpmforge.el6.rf.x86_64;
+	if rpm -q --quiet rpmforge-release-$rpmforge.el7.rf.x86_64;
 		then
 		echo "Good, It looks as though RPMFORGE $rpmforge is already installed. Skipping"; sleep 2
 		else
-			rpm -Uvh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-$rpmforge.el6.rf.x86_64.rpm
+			rpm -Uvh ftp://fr2.rpmfind.net/linux/dag/redhat/el7/en/x86_64/dag/RPMS/rpmforge-release-$rpmforge.el7.rf.x86_64.rpm
 			sed -i "12i exclude=openssh openssh-clients perl-File-Temp perl perl-Razor-Agent razor-agents" /etc/yum.repos.d/rpmforge.repo
 			sed -i '19 s:0:1:' /etc/yum.repos.d/rpmforge.repo
 			sed -i "23i exclude=perl-IO-Compress*" /etc/yum.repos.d/rpmforge.repo
