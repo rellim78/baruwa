@@ -514,9 +514,9 @@ else
 		else
 			rpm -Uvh http://mirror.neu.edu.cn/CentALT/6/x86_64/centalt-release-$centalt.noarch.rpm
 			sed -i 's/centos.alt.ru\/repository\/centos/mirror.neu.edu.cn\/CentALT/g' /etc/yum.repos.d/centalt.repo
-			
+
 			if [ -f $track/centalt-exclude ];
-			then 		
+			then
 				echo "Skipping"; sleep 2
 			else
 				echo -n "exclude=openssh-server openssh openssh-clients perl-Razor-Agent razor-agents clamav clamav-db clamd bind-chroot sphinx mariadb* mysql* perl-DBD-MySQL*" >> /etc/yum.repos.d/centalt.repo
@@ -528,7 +528,7 @@ else
 		then
 		echo "Good, It looks as though RPMFORGE $rpmforge is already installed. Skipping"; sleep 2
 		else
-			rpm -Uvh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-$rpmforge.el6.rf.x86_64.rpm
+			rpm -Uvh ftp://195.220.108.108/linux/dag/redhat/el6/en/x86_64/dag/RPMS/rpmforge-release-$rpmforge.el6.rf.x86_64.rpm
 			sed -i "12i exclude=openssh openssh-clients perl-File-Temp perl perl-Razor-Agent razor-agents" /etc/yum.repos.d/rpmforge.repo
 			sed -i '19 s:0:1:' /etc/yum.repos.d/rpmforge.repo
 			sed -i "23i exclude=perl-IO-Compress*" /etc/yum.repos.d/rpmforge.repo
@@ -549,7 +549,7 @@ else
     memcached spamassassin python-setuptools python-virtualenv tnef mailx clamd libmemcached-devel \
     perl-Net-CIDR perl-Sys-SigAction perl-Compress-Raw-Zlib make perl-Archive-Zip perl-Compress-Raw-Zlib \
     perl-Compress-Zlib perl-Convert-BinHex perl-Convert-TNEF perl-DBD-SQLite perl-DBI perl-Digest-HMAC \
-    perl-Digest-SHA1 perl-ExtUtils-MakeMaker perl-Filesys-Df perl-EV perl-String-CRC32 \
+    perl-Digest-SHA1 perl-ExtUtils-MakeMaker perl-Filesys-Df perl-EV perl-String-CRC32 perl-Mail-IMAPClient \
     perl-HTML-Parser perl-HTML-Tagset perl-IO-stringy perl-MailTools unzip clamav perl-IP-Country \
     perl-MIME-tools perl-Net-CIDR perl-Net-DNS perl-Net-IP perl-OLE-Storage_Lite perl-Pod-Escapes \
     perl-Pod-Simple perl-Sys-Hostname-Long perl-Sys-SigAction unrar perl-Mail-SPF mod_wsgi \
@@ -590,13 +590,13 @@ if [ -f $track/python ];
 python -c 'import virtualenv'; virtualenv --distribute px
 source px/bin/activate; export SWIG_FEATURES="-cpperraswarn -includeall -D__`uname -m`__ -I/usr/include/openssl"
 curl -O $fluxgit/extras/centos/requirements.txt
-pip install distribute
-pip install -U distribute
+# pip install distribute 			#Already in requirements.txt
+# pip install -U distribute 			#Why is this in here twice with an update?
 pip install python-memcached
 pip install --timeout 120 -r requirements.txt
-pip install babel==0.9.6
-pip uninstall reportlab -y
-pip install reportlab==2.7
+# pip install babel==0.9.6 			#Already in requirements.txt
+# pip uninstall reportlab -y			#No need to uninstall I hope
+# pip install reportlab==2.7			#Already in requirements.txt
 cd $home
 cp /usr/share/doc/libsphinxclient-*/sphinxapi.py px/lib/python$pythonver/site-packages/sphinxapi.py
 curl -O $baruwagit/extras/patches/repoze.who-friendly-form.patch
