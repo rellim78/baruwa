@@ -125,7 +125,7 @@ logs="/tmp/baruwa2"							# Logs Directory
 builddir="/usr/src/b2build/"						# Build Directory
 hosts=$(hostname -s)
 hostf=$(hostname)
-eth0ip=$(ifconfig eth0 | grep "inet addr" | awk '{ print $2 }' | sed 's/addr://')
+eth0ip=$(hostname -I)
 
 # SSL Organization Name
 sslorg=$msorgname
