@@ -1025,7 +1025,7 @@ f_pyzor_razor_dcc (){
 		echo "I believe these are already installed. Skipping."
 	else
 	echo "------------------------------------------------------------------------------";
-	echo "I N S T A L L  P Y Z O R  R A Z O R  & D C C";
+	echo "I N S T A L L  P Y Z O R  R A Z O R  &  D C C";
 	echo "------------------------------------------------------------------------------";
 	echo ""; sleep 3
 	cd $builddir; curl -O http://www.atomicorp.com/installers/atomic
