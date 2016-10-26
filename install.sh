@@ -411,8 +411,8 @@ while :
 		echo ""
 		echo "What password would you like to use?"
 		echo "This must be a complex password!"
-		IFS= read -p "Password: " adminpass
-		IFS= read -p "Password Again: " adminpass2
+		IFS= read -s -p "Password: " adminpass
+		IFS= read -s -p "Password Again: " adminpass2
 		[[ $adminpass = "$adminpass2" ]] && break
 		echo ''
 		echo 'Passwords do not match. Please try again.'
@@ -435,14 +435,14 @@ while :
 	do
 		echo ""
 		echo "What domain will you use? example - baruwa.domain.net"
-		IFS= read -p "Email: " baruwadomain
-		IFS= read -p "Email Again: " baruwadomain2
+		IFS= read -p "Domain: " baruwadomain
+		IFS= read -p "Domain Again: " baruwadomain2
 		[[ $baruwadomain = "$baruwadomain2" ]] && break
 		echo ''
 		echo 'These domains do not match. Please try again.'
 		echo ''
 	done
-	
+
 while :
 	do
 		f_clear
