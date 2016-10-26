@@ -4,11 +4,16 @@ export LANG=C
 # Install for Barwua 2.0 for Cent OS/RHEL x86_64
 # +--------------------------------------------------------------------+
 #
+# ORIGINAL:
 # Author - Jeremy McSpadden
 # Contact - jeremy@fluxlabs.net
 # Copyright (C) 2013  http://www.fluxlabs.net
 #
-# Sourced at https://github.com/fluxlabs/baruwa/blob/master/2.0/cent6/install.sh
+# LATEST:
+# Author - Steve Miller
+# Contact - smiller.naca@gmail.com
+#
+# Sourced from https://github.com/fluxlabs/baruwa/blob/master/2.0/cent6/install.sh
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -90,15 +95,15 @@ sslcity='Chicago'
 # Version Tracking
 # +---------------------------------------------------+
 
-date="02-18-2016"						# Last Updated On
-version="3.2.2"							# Script Version
+date="26-OCT-2016"						# Last Updated On
+version="3.3"							# Script Version
 
-osver="Cent OS/RHEL x86_64"				# Script ID
-baruwaver="2.0.1"						# Baruwa Version
+osver="CentOS 7.1"						# Script ID
+baruwaver="2.0.9"						# Baruwa Version
 centalt="6-1"							# CenAlt Version
-epel="6-8"								# EPEL Version
+epel="6-8"							# EPEL Version
 rpmforge="0.5.3-1"						# RPM Forge Version
-rabbitmq="3.6.0-1"						# Rabbit MQ Version
+rabbitmq="3.6.5-1"						# Rabbit MQ Version
 msver="4.85.2-3"						# MailScanner Version
 msver1="4.85.2"							# MS Config Version
 libmem="1.0.17"							# LIB MEM Cache Version
