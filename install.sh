@@ -518,7 +518,7 @@ else
 		echo "Good, It looks as though RPMFORGE $rpmforge is already installed. Skipping"; sleep 2
 		else
 			rpm -Uvh ftp://fr2.rpmfind.net/linux/dag/redhat/el7/en/x86_64/dag/RPMS/rpmforge-release-$rpmforge.el7.rf.x86_64.rpm
-			sed -i "12i exclude=openssh openssh-clients perl-File-Temp perl perl-Razor-Agent razor-agents" /etc/yum.repos.d/rpmforge.repo
+			sed -i "12i exclude=openssh openssh-clients perl-File-Temp perl perl-Razor-Agent razor-agents clamd" /etc/yum.repos.d/rpmforge.repo
 			sed -i '19 s:0:1:' /etc/yum.repos.d/rpmforge.repo
 			sed -i "23i exclude=perl-IO-Compress*" /etc/yum.repos.d/rpmforge.repo
 		fi
@@ -545,7 +545,7 @@ else
     perl-Net-CIDR perl-Sys-SigAction perl-Compress-Raw-Zlib make perl-Archive-Zip perl-Compress-Raw-Zlib \
     perl-Compress-Zlib perl-Convert-BinHex perl-Convert-TNEF perl-DBD-SQLite perl-DBI perl-Digest-HMAC \
     perl-Digest-SHA1 perl-ExtUtils-MakeMaker perl-Filesys-Df perl-EV perl-String-CRC32 \
-    perl-HTML-Parser perl-HTML-Tagset perl-IO-stringy perl-MailTools unzip clamav perl-IP-Country \
+    perl-HTML-Parser perl-HTML-Tagset perl-IO-stringy perl-MailTools unzip clamav clamd perl-IP-Country \
     perl-MIME-tools perl-Net-CIDR perl-Net-DNS perl-Net-IP perl-OLE-Storage_Lite perl-Pod-Escapes \
     perl-Pod-Simple perl-Sys-Hostname-Long perl-Sys-SigAction unrar perl-Mail-SPF mod_wsgi \
     perl-Test-Harness perl-Test-Pod perl-Test-Simple perl-TimeDate perl-Time-HiRes perl-Net-Ident re2c -y
