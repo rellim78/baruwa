@@ -107,7 +107,7 @@ rabbitmq="3.6.5-1"						# Rabbit MQ Version
 msver="4.85.2-3"						# MailScanner Version
 msver1="4.85.2"							# MS Config Version
 libmem="1.0.17"							# LIB MEM Cache Version
-pythonver="2.6"							# Python Version
+pythonver="2.7"							# Python Version
 pyzorver="0.5.0"						# Pyzor Version
 postgresver="9.1"						# PostgreSQL Version
 spamassver="3.3.2"						# Spamasassin Version
@@ -594,8 +594,8 @@ pip uninstall reportlab -y
 pip install reportlab==2.7
 cd $home
 cp /usr/share/doc/libsphinxclient-*/sphinxapi.py px/lib/python$pythonver/site-packages/sphinxapi.py
-curl -O $baruwagit/extras/patches/repoze.who-friendly-form.patch
-curl -O $baruwagit/extras/patches/repoze-who-fix-auth_tkt-tokens.patch
+curl -O $fluxgit/extras/patches/repoze.who-friendly-form.patch
+curl -O $fluxgit/extras/patches/repoze-who-fix-auth_tkt-tokens.patch
 cd $home/px/lib/python$pythonver/site-packages/repoze/who/plugins/
 patch -p3 -i $home/repoze.who-friendly-form.patch
 patch -p4 -i $home/repoze-who-fix-auth_tkt-tokens.patch
